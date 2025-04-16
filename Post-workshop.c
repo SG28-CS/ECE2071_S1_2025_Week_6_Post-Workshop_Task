@@ -103,8 +103,10 @@ void filter_ascending(struct node *startPtr, int count_nodes)
         {
             if (prevPtr->data > curPtr->data)
             {
+				prevPtr->data = curPtr->data;
                 prevPtr->nextPtr = curPtr->nextPtr;
                 free(curPtr);
+				curPtr = prevPtr->nextPtr;
 			}
             prevPtr = prevPtr->nextPtr; 
             curPtr = prevPtr->nextPtr;
